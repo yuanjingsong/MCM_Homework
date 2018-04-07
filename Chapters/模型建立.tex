@@ -1,0 +1,25 @@
+\section{模型建立与求解}
+对于这个问题，我们希望输入R, G, B, H, S的值，然后得到对应物质的浓度。我们知道，RGB标准和HSV标准是两套独立衡量颜色的标准，即对于一种颜色而言具有唯一的R, G, B 值和H, S, V值，并且R, G, B值和H, S, V值可以相互转换。但我们在 Adode Photoshop中，对一组RGB取值之后得到的HSV值与所给的HSV值不同，这说明我们数据中的RGB值和HSV值并不遵循我们常见的转换规则。我们常见的RGB与HSV转换方式如下：
+
+i\begin{displaymath}
+\begin{align}
+V = max(R, G, B)
+
+S = \begin{cases} 
+V - \frac{min(R, G, B)}{V} & V \neq 0 \\
+0 & otherwise
+\end{cases}
+
+H = \begin{cases}
+\frac {60(G-B)} {V-min(R, G, B)} & V \eq R \\
+120 + \frac{60(B-R)}{V-min(R,G,B)}  & V \eq G \\ 
+240 + \frac{60(R-G)}{V-min(R,G,B)} & V \eq B
+\end{cases}
+
+\begin{cases}
+H \in [0, 360\:w]
+\end{cases}
+\end{align}
+\end{displaymath}
+
+
