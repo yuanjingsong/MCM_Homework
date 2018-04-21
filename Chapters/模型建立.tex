@@ -82,7 +82,8 @@
     这里写对图的分析
 
     显然组胺浓度与与RGB有着强烈的负相关性，而RGB属性之间又有着自相关性，进一步计算RGB之间的自相关性系数
-    \begin{table}
+    \begin{table}[H]
+        \centering
         \begin{tabular}{|c|c|c|c|c|c|c|}
         \hline 
             \diagbox{属性}{属性} & B & G & R & H & S & Gr \\
@@ -104,7 +105,8 @@
 
     根据所给的两组数据，我们可以看到两组数据的偏差范围不大，所以可以使用两组数据的平均数进行数据处理。分别计算R，G，B，H，S，灰度，RGB算数平均数，
     RGB几何平均数与组胺浓度的相关系数，得到对应的相关系数为
-    \begin{table}
+    \begin{table}[H]
+        \centering  
         \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
         \hline         
             属性 & R & G & B & H & S & 灰度 & RGB算数平均数 & RGB几何平均数 \\
@@ -128,9 +130,9 @@
 
     $$ y = p_1 x + p_2$$
 
-    其中 $p_1，p_2$为回归系数。利用 Matlab 软件进行求解得到的回归系数估计值及置信区间，检验统计量 $R^2, RMSE $结果如下
+    其中 $p_{1}，p_{2}$为回归系数。利用 Matlab 软件进行求解得到的回归系数估计值及置信区间，检验统计量 $R^2, RMSE $结果如下
 
-    \begin{table}
+    \begin{table}[H]
         \centering
         \begin{tabular}{|c|c|c|}
             \hline
@@ -156,7 +158,7 @@
     其中，$x$ 代表 $H$, $y$ 代表 $S$， $p_{00},p_{10} x,p_{01}$ 代表回归系数，利用 Matlab 软件进行求解得到的回归系数估计值及置信区间，
     检验统计量 $R^2, RMSE $结果如下
 
-    \begin{table}
+    \begin{table}[H]
         \centering
         \begin{tabular}{|c|c|c|}
             \hline
@@ -185,7 +187,8 @@
     这里写对图的分析
 
     从图中可以看到，G，R所对应的两条折线趋势基本趋于平缓，大概可以判断溴酸钾浓度与G，R这两个维度没有较大的联系，进一步计算RGB之间的自相关性系数
-    \begin{table}
+    \begin{table}[H]
+        \centering
         \begin{tabular}{|c|c|c|c|c|c|c|}
             \hline
             \diagbox{属性}{属性} & B & G & R & H & S & Gr \\
@@ -208,7 +211,8 @@
     对于所给的两组数据，两组数据的极差很小，所以可以直接使用两组数据的平均数进行数据分析，分别计算R，G，B，H，S，灰度，RGB算术平均数，
     RGB几何平均数与溴酸钾浓度的相关系数，得到如下表格
 
-    \begin{table}
+    \begin{table}[H]
+        \centering
         \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
             \hline         
             属性 & R & G & B & H & S & 灰度 & RGB算数平均数 & RGB几何平均数 \\
@@ -232,9 +236,9 @@
 
     $$ y = p_1 x + p_2$$
 
-    其中 $p_1，p_2$为回归系数。利用 Matlab 软件进行求解得到的回归系数估计值及置信区间，检验统计量 $R^2, RMSE $结果如下
+    其中 $p_{1}，p_{2}$为回归系数。利用 Matlab 软件进行求解得到的回归系数估计值及置信区间，检验统计量 $R^2, RMSE $结果如下
 
-    \begin{table}
+    \begin{table}[H]
         \centering
         \begin{tabular}{|c|c|c|}
             \hline
@@ -260,7 +264,7 @@
 
     其中 $p_1，p_2$为回归系数。利用 Matlab 软件进行求解得到的回归系数估计值及置信区间，检验统计量 $R^2, RMSE $结果如下
 
-    \begin{table}
+    \begin{table}[H]
         \centering
         \begin{tabular}{|c|c|c|}
             \hline
@@ -285,10 +289,10 @@
     建立二元回归方程 为
 
     $$ z = p_{00} + p_{10} x + p_{01} y$$
-    其中，$x$ 代表 $H$, $y$ 代表 $S$， $p_{00},p_{10} x,p_{01}$ 代表回归系数，利用 Matlab 软件进行求解得到的回归系数估计值及置信区间，
+    其中，$x$ 代表 $H$, $y$ 代表 $S$， $p_{00},p_{10},p_{01}$ 代表回归系数，利用 Matlab 软件进行求解得到的回归系数估计值及置信区间，
     检验统计量 $R^2, RMSE $结果如下
 
-    \begin{table}
+    \begin{table}[H]
         \centering
         \begin{tabular}{|c|c|c|}
             \hline
@@ -319,7 +323,8 @@
     故排除浓度为0的点进行分析。
 
     注意到图中的 RGB 三条曲线所对应的趋势相同，变化不大，进一步计算他们之间的相关性系数
-    \begin{table}
+    \begin{table}[H]
+        \centering
             \begin{tabular}{|c|c|c|c|c|c|c|}
                 \hline
                 \diagbox{属性}{属性} & B & G & R & H & S & Gr \\
@@ -352,7 +357,7 @@
     其中，$p_1, p_2$为回归系数。利用 Matlab 软件进行求解得到的回归系数估计值及置信区间，
     检验统计量$R^2, RMSE $结果如下 
 
-    \begin{table}
+    \begin{table}[H]
         \centering
         \begin{tabular}{|c|c|c|}
             \hline
@@ -368,9 +373,13 @@
         \end{table}
 
     结果分析： 从表中可以看出 $R^2$ 近似为1，RMSE的值为0.5079，且每个回归系数的置信区间没有包含零点，
-    说明灰度值对浓度影响是显著的，所以模型在整体上是合理可用的。
+    说明灰度值对浓度影响是显著的，所以模型在整体上是合理可用的。说明工业碱溶液的浓度可以通过颜色读数来确定，其预测方程为：
+        $$y = -0.03599 x + 12.93 $$
 
-     
+    注意：由于所给的数据量过少，且浓度变化范围主要集中在 $7 \sim 12$之间，所以我们根据灰度来预测的取值范围也应在 $40 \sim 140$
+    之间
+
+
 \subsection{问题二的分析求解}
 
 \subsection{问题三的分析}
