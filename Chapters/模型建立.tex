@@ -106,15 +106,15 @@
     根据所给的两组数据，我们可以看到两组数据的偏差范围不大，所以可以使用两组数据的平均数进行数据处理。分别计算R，G，B，H，S，灰度，RGB算数平均数，
     RGB几何平均数与组胺浓度的相关系数，得到对应的相关系数为
     \begin{table}[H]
-        \centering  
-        \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
-        \hline
-            属性 & R & G & B & H & S & 灰度 & RGB算数平均数 & RGB几何平均数 \\
-        \hline
-            大小 & -0.9313 & -0.997 & -0.9724 & -0.9778 & 0.96272 & -0.996 & -0.995 & -0.993 \\
-        \hline
+        \centering
+        \caption{My caption}
+        \label{my-label}
+        \begin{tabular}{@{}ccccccccc@{}}
+        \toprule
+        属性 & R       & G      & B       & H       & S       & 灰度     & RGB算数平均数 & RGB几何平均数 \\ \midrule
+        大小 & -0.9313 & -0.997 & -0.9724 & -0.9778 & 0.96272 & -0.996 & -0.995   & -0.993   \\ \bottomrule
         \end{tabular}
-    \end{table}
+        \end{table}
          
     可以看到，灰度与浓度的自相关性系数绝对值较接近1，有着强烈的相关性，所以我们可以直接使用灰度作为自变量对浓度进行一元的线性回归，这样一方面简化了模型，
     另一方面并没有过多地丢失精度。
@@ -134,16 +134,15 @@
 
     \begin{table}[H]
         \centering
-        \begin{tabular}{|c|c|c|}
-            \hline
-            参数     & 参数估计值  & 参数置信区间        \\ 
-            \hline
-            $p_1$  & -3.034 & [-3.248, -2.82] \\
-            \hline
-            $p_2$  & 327.4  & [306.9, 348]   \\
-            \hline
-            \multicolumn{3}{|c|}{$R^2$ = 0.9926 $RMSE$ = 3.404}  \\                                            
-            \hline
+        \caption{My caption}
+        \label{my-label}
+        \begin{tabular}{@{}ccc@{}}
+        \toprule
+        参数         & 参数估计值      & 参数置信区间                  \\ \midrule
+        $p_1$      & -3.034     & {[}-3.248, -2.82{]}     \\
+        $p_2$      & 327.4      & {[}-3.248, -2.82{]}     \\
+        \hline
+        \multicolumn{3}{c}{$R^2$ = 0.9926 $RMSE$ = 3.404} \\ \bottomrule
         \end{tabular}
         \end{table}
 
@@ -160,18 +159,16 @@
 
     \begin{table}[H]
         \centering
-        \begin{tabular}{|c|c|c|}
-            \hline
-            参数     & 参数估计值  & 参数置信区间        \\ 
-            \hline
-            $p_00$  & 60.72 & [-100.6, 222] \\
-            \hline
-            $p_10$  & -5.5 & [-9.439, -1.561]   \\
-            \hline
-            $p_01$  & 0.5614 & [-0.1248, 1.248]   \\
-            \hline
-            \multicolumn{3}{|c|}{$R^2$ = 0.914 $RMSE$ =7.147}  \\                                            
-            \hline
+        \caption{My caption}
+        \label{my-label}
+        \begin{tabular}{@{}lcc@{}}
+        \toprule
+        参数       & 参数估计值  & 参数置信区间                       \\ \midrule
+        $p_{00}$ & 60.72  & {[}-100.6, 222{]}    \\
+        $p_{10}$ & -5.5   & {[}-9.439, -1.561{]} \\
+        $p_{01}$ & 0.5614 & {[}-0.1248, 1.248{]} \\
+        \hline
+        \multicolumn{3}{c}{$R^2$ = 0.914 $RMSE$ =7.147}  \\ \bottomrule
         \end{tabular}
         \end{table}
 
@@ -213,14 +210,14 @@
 
     \begin{table}[H]
         \centering
-        \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
-            \hline
-            属性 & R & G & B & H & S & 灰度 & RGB算数平均数 & RGB几何平均数 \\
-            \hline
-            大小 & -0.16 & -0.87 & -0.96 & 0.69 & 0.95 & -0.95 & -0.96 & -0.96 \\
-            \hline
+        \caption{My caption}
+        \label{my-label}
+        \begin{tabular}{@{}ccccccccc@{}}
+        \toprule
+        属性 & R     & G     & B     & H    & S    & 灰度    & RGB算数平均数 & RGB几何平均数 \\ \midrule
+        大小 & -0.16 & -0.87 & -0.96 & 0.69 & 0.95 & -0.95 & -0.96    & -0.96    \\ \bottomrule
         \end{tabular}
-    \end{table}
+        \end{table}
 
 
     根据图表中计算的数据，可以看到灰度与浓度的相关性系数接近1，有着一定的相关性，所以我们可以直接使用灰度作为自变量对浓度进行一元的线性回归，
@@ -240,19 +237,17 @@
 
     \begin{table}[H]
         \centering
-        \begin{tabular}{|c|c|c|}
-            \hline
-            参数     & 参数估计值  & 参数置信区间        \\ 
-            \hline
-            $p_1$  & -5.291 & [-6.765, -3.817] \\
-            \hline
-            $p_2$  & 731.6 & [538, 925.2]   \\
-            \hline
-            \multicolumn{3}{|c|}{$R^2$ = 0.8954 $RMSE$ = 12.78}  \\                                            
-            \hline
+        \caption{My caption}
+        \label{my-label}
+        \begin{tabular}{@{}ccc@{}}
+        \toprule
+        参数        & 参数估计值      & 参数置信区间                   \\ \midrule
+        $p_1$     & -5.291     & {[}-6.765, -3.817{]}     \\
+        $p_2$     & 731.6      & {[}538, 925.2{]}         \\
+        \hline
+        \multicolumn{3}{c}{$R^2$ = 0.8954 $RMSE$ = 12.78} \\ \bottomrule
         \end{tabular}
         \end{table}
-    
     从上表可以看到$R^2$近似为1，RMSE 值为12.78，并且两个参数的置信区间并没有包含零点，说明灰度值对溴酸钾浓度影响是显著的，
     因此模型在整体上是合理可用的。说明溴酸钾的浓度可以通过颜色读数来确定，其预测的方程为
     $$ y = -5.291 x + 731.6 $$ 
@@ -266,16 +261,15 @@
 
     \begin{table}[H]
         \centering
-        \begin{tabular}{|c|c|c|}
-            \hline
-            参数     & 参数估计值  & 参数置信区间        \\ 
-            \hline
-            $p_1$  & -1.197 & [-1.367, -1.026] \\
-            \hline
-            $p_2$  & 162.9 & [144.3, 181.4]   \\
-            \hline
-            \multicolumn{3}{|c|}{$R^2$ = 0.9704 $RMSE$ = 6.8}  \\                                            
-            \hline
+        \caption{My caption}
+        \label{my-label}
+        \begin{tabular}{@{}ccc@{}}
+        \toprule
+        参数        & 参数估计值     & 参数置信区间                  \\ \midrule
+        $p_1$     & -1.197    & {[}-1.367, -1.026{]}    \\
+        $p_2$     & 162.9     & {[}144.3, 181.4{]}      \\
+        \hline
+        \multicolumn{3}{c}{$R^2$ = 0.9704 $RMSE$ = 6.8} \\ \bottomrule
         \end{tabular}
         \end{table}
 
@@ -294,18 +288,16 @@
 
     \begin{table}[H]
         \centering
-        \begin{tabular}{|c|c|c|}
-            \hline
-            参数     & 参数估计值  & 参数置信区间        \\ 
-            \hline
-            $p_00$  & 155.8 & [-29.68, 341.2] \\
-            \hline
-            $p_10$  & -7.897 & [-15.92, 0.1276]   \\
-            \hline
-            $p_01$  & 0.6479 & [0.4536, 0.8423]   \\
-            \hline
-            \multicolumn{3}{|c|}{$R^2$ = 0.9478 $RMSE$ =9.653}  \\                                            
-            \hline
+        \caption{My caption}
+        \label{my-label}
+        \begin{tabular}{@{}ccc@{}}
+        \toprule
+        参数         & 参数估计值     & 参数置信区间                  \\ \midrule
+        $p_00$     & 155.8     & {[}-29.68, 341.2{]}     \\
+        $p_10$     & -7.897    & {[}-15.92, 0.1276{]}    \\
+        $p_01$     & 0.6479    & {[}0.4536, 0.8423{]}    \\
+        \hline
+        \multicolumn{3}{c}{$R^2$ = 0.9478 $RMSE$ =9.653} \\ \bottomrule
         \end{tabular}
         \end{table}
 
@@ -359,16 +351,15 @@
 
     \begin{table}[H]
         \centering
-        \begin{tabular}{|c|c|c|}
-            \hline
-            参数     & 参数估计值  & 参数置信区间        \\ 
-            \hline
-            $p_1$  & -0.03599 & [-0.05097, -0.02101] \\
-            \hline
-            $p_2$  & 12.93  & [11.29, 14.58]   \\
-            \hline
-            \multicolumn{3}{|c|}{$R^2$ = 0.9175 $RMSE$ = 0.5079}  \\                                            
-            \hline
+        \caption{My caption}
+        \label{my-label}
+        \begin{tabular}{@{}ccc@{}}
+        \toprule
+        参数       & 参数估计值      & 参数置信区间                     \\ \midrule
+        $p_1$    & -0.03599   & {[}-0.05097, -0.02101{]}   \\
+        $p_2$    & 12.93      & {[}11.29, 14.58{]}         \\
+        \hline
+        \multicolumn{3}{c}{$R^2$ = 0.9175 $RMSE$ = 0.5079} \\ \bottomrule
         \end{tabular}
         \end{table}
 
