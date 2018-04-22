@@ -1,6 +1,6 @@
-\subsection{问题二的模型建立与求解}
+\section{问题二的模型建立与求解}
 
-\subsubsection{数据处理及分析}
+\subsection{数据处理及分析}
 
 利用问题一中建立的数据质量综合评价模型，综合评价问题一中五种物质以及二氧化硫的数据质量。
 首先计算有关二氧化硫的测量数据中，RGB值与HS值的吻合度，H、S值的测量值与H、S的计算值如表~\ref{SO2_HSCheck}所示。
@@ -60,15 +60,25 @@
 
 由表~\ref{SO2_Judge}可见，与二氧化硫有关的测量数据质量较好，适合进行研究分析。
 
-比较各参数与浓度的线性相关性，结果如表~所示。
+比较各参数与浓度的线性相关性，结果如表~\ref{SO2_corr}所示。
 
-（表格：二氧化硫各系数与其浓度的线性相关系数）
+\begin{table}[]
+    \centering
+    \caption{二氧化硫各系数与其浓度的线性相关系数}
+    \label{SO2_corr}
+    \begin{tabular}{@{}llllll@{}}
+    \toprule
+    R     & G     & B    & Gr    & H    & S    \\ \midrule
+    -0.84 & -0.86 & 0.66 & -0.86 & -0.1 & 0.82 \\ \bottomrule
+    \end{tabular}
+    \end{table}
 
-可以发现灰度和G与浓度c有较强的线性相关性，其折线图如图~所示，它们都与浓度呈负相关。
 
-（图：二氧化硫浓度关于灰度与G的折线图）
+可以发现灰度和G与浓度c有较强的线性相关性，其折线图如图~\ref{SO2_GrG_C}所示，它们都与浓度呈负相关。
 
-\subsubsection{一元线性回归模型}
+\quickF{0.6}{SO2_GrG_C.png}{二氧化硫浓度关于灰度与G的折线图}{SO2_GrG_C}
+
+\subsection{一元线性回归模型}
 
 根据数据分析的结果，首先分别建立基于灰度（Gr）与G的一元线性回归模型。
 
@@ -76,53 +86,101 @@
 
 $$c=a \times Gr+b$$
 
-求解结果如表~所示。
+求解结果如表~\ref{SO2_Gr_linear}所示。
 
-（表格：二氧化硫浓度关于灰度的一元线性回归结果）
+\begin{table}[]
+    \centering
+    \caption{二氧化硫浓度关于灰度的一元线性回归结果}
+    \label{SO2_Gr_linear}
+    \begin{tabular}{@{}ccc@{}}
+    \toprule
+    参数       & 参数估计值      & 参数置信区间                   \\ \midrule
+    $a$      & -3.611     & {[}-6.059, -1.163{]}     \\
+    $b$      & 515.3      & {[}206.3, 824.3{]}       \\ \midrule
+    \multicolumn{3}{c}{$R^2$ = 0.742 $RMSE$ = 28.99} \\ \bottomrule
+    \end{tabular}
+    \end{table}
+
 
 对于G，建立一元线性回归方程：
 
-$$c=a \times G+b$$
+$$\hat{c}=a \times G+b$$
 
-求解结果如表~所示。
+求解结果如表~\ref{SO2_G_linear}所示。
 
-（表格：二氧化硫浓度关于G的一元线性回归结果）
+\begin{table}[]
+    \centering
+    \caption{二氧化硫浓度关于G的一元线性回归结果}
+    \label{SO2_G_linear}
+    \begin{tabular}{@{}ccc@{}}
+    \toprule
+    参数       & 参数估计值      & 参数置信区间                   \\ \midrule
+    $a$      & -2.293     & {[}-3.84, -0.7468{]}     \\
+    $b$      & 307.5      & {[}139.2, 475.8{]}       \\ \midrule
+    \multicolumn{3}{c}{$R^2$ = 0.6928 $RMSE$ = 28.88} \\ \bottomrule
+    \end{tabular}
+\end{table}
 
-由表~和表~所示，这两种一元线性回归模型的回归结果较不理想，R方值过低，无法应用于实际。
 
-\subsubsection{指数增长模型}
+由表~\ref{SO2_Gr_linear}和表~\ref{SO2_G_linear}所示，这两种一元线性回归模型的回归结果较不理想，R方值过低，无法应用于实际。
 
-观察浓度与灰度的关系，如图~所示，发现浓度随灰度的变化趋势近似符合指数模型。
-设: $$c=ae^{b\dot Gr}$$，利用Matlab的拟合工具箱计算得出结果如表~所示。
+\subsection{指数增长模型}
+
+观察浓度与灰度的关系，如图~\ref{SO2_Gr_C}所示，发现浓度随灰度的变化趋势近似符合指数模型。
+\quickF{0.6}{SO2_Gr_C.png}{浓度随灰度的变化趋势}{SO2_Gr_C}
+设:
+ $$\hat{c}=ae^{b\times Gr}$$
+利用Matlab的拟合工具箱计算得出结果如表~\ref{SO2_Gr_exp}所示。
 由表中结果可以看出，虽然该模型的R方值较小，但是参数a的置信区间跨越了0点，该模型无法被采纳应用于实际。
+\begin{table}[]
+    \centering
+    \caption{二氧化硫浓度关于灰度的指数增长回归结果}
+    \label{SO2_Gr_exp}
+    \begin{tabular}{@{}ccc@{}}
+    \toprule
+    参数       & 参数估计值      & 参数置信区间                   \\ \midrule
+    $a$      & 1.654e+07     & {[}-4.384e+07, 7.691e+07{]}     \\
+    $b$      &  -0.1032      & {[}-0.1347, -0.07162{]}       \\ \midrule
+    \multicolumn{3}{c}{$R^2$ = 0.966 $RMSE$ = 543.5} \\ \bottomrule
+    \end{tabular}
+\end{table}
 
-(图片：浓度随灰度的变化趋势)
 
-（表格：二氧化硫浓度关于灰度的指数增长回归结果）
-
-
-
-\subsubsection{快速平衡模型}
+\subsection{快速平衡模型}
 
 在问题一中，快速平衡模型很好的描述了硫酸铝钾的H、S与其浓度的关系。在本问题中继续就此模型展开讨论。
-绘制二氧化硫H、S（修正后）的值随其浓度变化的折线图，观察其趋势，如图~所示。
+绘制二氧化硫H、S（修正后）的值随其浓度变化的折线图，观察其趋势，如图~\ref{SO2_C_HS}所示。
 从图~中可以看出，H与浓度没有明显的关系，而S的变化趋势则符合使用快速平衡模型的条件。
 
-（图：二氧化硫H、S随其浓度c变化的折线图）
+\quickF{0.6}{SO2_C_HS.png}{二氧化硫H、S随其浓度c变化的折线图}{SO2_C_HS}
+
 
 建立回归模型：
 
 
-   $$ S = \frac{\beta_1 c}{\beta_2b+\beta_3}$$
+   $$ S = \frac{\beta_1 c}{\beta_2+c}+\beta_3$$
 
 
-求解结果如表~所示，该模型拟合效果较好，且参数的置信区间没有包含零点，说明模型是可信的。
+求解结果如表~\ref{SO2_S_MM}所示，该模型拟合效果较好，且参数的置信区间没有包含零点，说明模型是可信的。
 将模型转化为浓度关于S的表达式：
+$$\hat{c} = \frac{\beta_2S-\beta_2 \beta_3}{\beta_1+\beta_3-S}$$
+带入数值得：
+$$\hat{c} = \frac{124.1S-359.45}{142.01-S}$$
 
-
-    $$c = ...$$
 
 
 综合以上的讨论，基于S的快速平衡模型能较好地解决此问题。
 
-（表：二氧化硫S与浓度的快速平衡模型计算结果）
+\begin{table}[]
+    \centering
+    \caption{二氧化硫S与浓度的快速平衡模型计算结果}
+    \label{SO2_S_MM}
+    \begin{tabular}{@{}ccc@{}}
+    \toprule
+    参数       & 参数估计值      & 参数置信区间                   \\ \midrule
+    $\beta_1$      & 124.1     & {[}105, 143.2{]}     \\
+    $\beta_2$      & 20.07     & {[}9.305, 30.84{]}     \\
+    $\beta_3$      & 17.91      & {[}5.255, 30.56{]}       \\ \midrule
+    \multicolumn{3}{c}{$R^2$ = 0.9903 $RMSE$ = 4.569} \\ \bottomrule
+    \end{tabular}
+\end{table}
