@@ -1,0 +1,9 @@
+%B = BGR(:,1);
+%G = BGR(:,2);
+%R = BGR(:,3);
+%RGB = [R,G,B]./255;
+RGB = RGB./225
+HSV = rgb2hsv(RGB);
+H = HSV(:,1).*180;
+S = HSV(:,2).*255;
+HS = [H,S];

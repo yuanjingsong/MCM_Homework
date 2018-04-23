@@ -1,0 +1,77 @@
+ZA_RGB_C.png
+plot(r1,c1,'-')
+hold on
+plot(g1,c1,'-.')
+plot(b1,c1,'--')
+ylabel('浓度')
+grid on
+legend('R','G','B','location','best')
+
+ZA_Gr_C.png
+x = gr1;
+y = c1;
+plot(x,y,x,y,'.','markersize',15)
+xlabel('灰度')
+ylabel('浓度')
+grid on
+
+XSJ_RGB_C
+plot(r2,c2,'-')
+hold on
+plot(g2,c2,'-.')
+plot(b2,c2,'--')
+ylabel('浓度')
+legend('R','G','B','location','best')
+grid on
+
+XSJ_Gr_C
+x = gr2;
+y = c2;
+plot(x,y,x,y,'.','markersize',15)
+xlabel('灰度')
+ylabel('浓度')
+grid on
+
+GYJ_Gr_C
+x = gr3;
+y = c3;
+plot(x,y,x,y,'.','markersize',15)
+xlabel('灰度')
+ylabel('浓度')
+grid on
+
+LSLJ_HS_C
+plot(h4,c4,'-')
+hold on
+plot(s4,c4,'-.')
+ylabel('浓度')
+legend('H','S','location','best')
+grid on
+
+GYJ_RGB_C
+plot(r3,c3,'-')
+hold on
+plot(g3,c3,'-.')
+plot(b3,c3,'--')
+ylabel('浓度')
+grid on
+legend('R','G','B','location','best')
+
+GYJ_RGB_C_no0
+plot(r3(1:end-1),c3(1:end-1),'-')
+hold on
+plot(g3(1:end-1),c3(1:end-1),'-.')
+plot(b3(1:end-1),c3(1:end-1),'--')
+ylabel('浓度')
+grid on
+legend('R','G','B','location','best')
+
+LSLJ_RGBGr_C
+plot(r4,c4,'-')
+hold on
+plot(g4,c4,'-.')
+plot(b4,c4,'--')
+plot(gr4,c4,'-*')
+ylabel('浓度')
+grid on
+legend('R','G','B','Gr','location','best')
