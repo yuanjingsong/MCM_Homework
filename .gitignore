@@ -1,0 +1,6 @@
+*.aux
+*.log
+*.out
+*.gz
+*.bak
+paper.pdf
